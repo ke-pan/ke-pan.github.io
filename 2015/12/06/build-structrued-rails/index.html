@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="读书笔记," />
+  <meta name="keywords" content="Rails,Ruby,读书笔记," />
 
 
 
@@ -39,22 +39,40 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="一直心心念念要开的博客终于要开始了。
-开博的想法一直像荒草在心里漫漫地长着，没人管，也没人锄。这就是拖延症吧。总有各种各样的理由不去开始，比如要选一个高大上的博客系统啦，或是要自己搭一个博客系统啦，或是先把一个项目写起来啦…… （不只开博，在做很多事情时我都会设置过于复杂、艰难的前置条件，比如开始一个项目，要先把相关的书 读一遍）一天天，一周周，一月月，手边总有事情忙，博客总开不了。
-8月16日，">
+<meta name="description" content="问题Rails 项目随着代码量不断增大，复杂度不断增加，开始越来越难以维护。表现在：
+
+fat controller
+不断增加的需求使 controller 塞满了各种 action, 比如 search, order 等等。
+某些 action 的逻辑特别复杂，比如 search 会根据 params 实现不同的 filter 逻辑。
+
+
+fat model
+不断增加的需求使 model 塞满了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读书笔记——成功，动机与目标">
-<meta property="og:url" content="http://ke-pan.github.io/2015/09/06/how-we-can-reach-out-goals/index.html">
+<meta property="og:title" content="读书笔记——GROWING RAILS APPLICATIONS IN PRACTICE">
+<meta property="og:url" content="http://ke-pan.github.io/2015/12/06/build-structrued-rails/index.html">
 <meta property="og:site_name" content="Programer Programs, Writer Writes">
-<meta property="og:description" content="一直心心念念要开的博客终于要开始了。
-开博的想法一直像荒草在心里漫漫地长着，没人管，也没人锄。这就是拖延症吧。总有各种各样的理由不去开始，比如要选一个高大上的博客系统啦，或是要自己搭一个博客系统啦，或是先把一个项目写起来啦…… （不只开博，在做很多事情时我都会设置过于复杂、艰难的前置条件，比如开始一个项目，要先把相关的书 读一遍）一天天，一周周，一月月，手边总有事情忙，博客总开不了。
-8月16日，">
-<meta property="og:updated_time" content="2015-09-06T14:09:19.000Z">
+<meta property="og:description" content="问题Rails 项目随着代码量不断增大，复杂度不断增加，开始越来越难以维护。表现在：
+
+fat controller
+不断增加的需求使 controller 塞满了各种 action, 比如 search, order 等等。
+某些 action 的逻辑特别复杂，比如 search 会根据 params 实现不同的 filter 逻辑。
+
+
+fat model
+不断增加的需求使 model 塞满了">
+<meta property="og:updated_time" content="2015-12-07T14:14:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书笔记——成功，动机与目标">
-<meta name="twitter:description" content="一直心心念念要开的博客终于要开始了。
-开博的想法一直像荒草在心里漫漫地长着，没人管，也没人锄。这就是拖延症吧。总有各种各样的理由不去开始，比如要选一个高大上的博客系统啦，或是要自己搭一个博客系统啦，或是先把一个项目写起来啦…… （不只开博，在做很多事情时我都会设置过于复杂、艰难的前置条件，比如开始一个项目，要先把相关的书 读一遍）一天天，一周周，一月月，手边总有事情忙，博客总开不了。
-8月16日，">
+<meta name="twitter:title" content="读书笔记——GROWING RAILS APPLICATIONS IN PRACTICE">
+<meta name="twitter:description" content="问题Rails 项目随着代码量不断增大，复杂度不断增加，开始越来越难以维护。表现在：
+
+fat controller
+不断增加的需求使 controller 塞满了各种 action, 比如 search, order 等等。
+某些 action 的逻辑特别复杂，比如 search 会根据 params 实现不同的 filter 逻辑。
+
+
+fat model
+不断增加的需求使 model 塞满了">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +82,7 @@
   };
 </script>
 
-  <title> 读书笔记——成功，动机与目标 | Programer Programs, Writer Writes </title>
+  <title> 读书笔记——GROWING RAILS APPLICATIONS IN PRACTICE | Programer Programs, Writer Writes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +181,7 @@
           
           
             
-              读书笔记——成功，动机与目标
+              读书笔记——GROWING RAILS APPLICATIONS IN PRACTICE
             
           
         </h1>
@@ -172,8 +190,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-06T22:09:19+08:00" content="2015-09-06">
-            2015-09-06
+          <time itemprop="dateCreated" datetime="2015-12-06T22:01:45+08:00" content="2015-12-06">
+            2015-12-06
           </time>
         </span>
 
@@ -191,52 +209,56 @@
       
 
       
-        <span itemprop="articleBody"><p>一直心心念念要开的博客终于要开始了。</p>
-<p>开博的想法一直像荒草在心里漫漫地长着，没人管，也没人锄。这就是拖延症吧。总有各种各样的理由不去开始，比如要选一个高大上的博客系统啦，或是要自己搭一个博客系统啦，或是先把一个项目写起来啦…… （不只开博，在做很多事情时我都会设置过于复杂、艰难的前置条件，比如开始一个项目，要先把相关的书 读一遍）一天天，一周周，一月月，手边总有事情忙，博客总开不了。</p>
-<p>8月16日，我参加了 Rails Girls 上海站活动，当教练。学员夸我讲得好，蛮有成就感的。活动过后，刘虓震博士推荐了一本书<a href="http://book.douban.com/subject/22994632/" target="_blank" rel="external">《成功，动机与目标》</a>，说的是<a href="http://www.liuxiaozhen.com/2015/04/12/succeed/" target="_blank" rel="external">“提升行动力，达成目标，并且享受过程”</a>。活动结束第二天，我就买了一本。</p>
-<blockquote>
-<p>一本被书名毁了的好书。但这并非作者之误，只因我们的时代给“成功”添加了太多原本不属于它的含义。“成功”在字典中的定义是：达成想要的结果。本书基于心理学研究，阐述如何提高行动力，达成目标，并且享受过程。</p>
-</blockquote>
-<p>说起买书读书，也是泪。搁在我书架上的很多书，我都没有读完。这本200页出头的小书，我在三个礼拜后的今天，才看了一半。我原本是打算在地铁上读的，总有各种情况阻止我：人太挤拿不出书；看到的好内容手边没有笔记记录；手机打发了一半行程，这时候拿出书来看不了多久；别人会不会觉得我装逼……要不平时看吧？正襟危坐总可以了吧。可我要看的书很多啊，提高技能的专业书怎么也更急迫吧。我还要刷 leetcode 呢。可见成功（以下描述“成功”时均忽略其世俗意义，用其“达成目标”的意义）路上有多少阻碍啊。</p>
-<p>不管怎样，我周六下午抽了2个小时把后半部分看完了。趁着这个劲头，我写个读后感，画个脑图，也算这本书没白读。不知道这是不是我又一个强迫的完美主义范例。</p>
-<p>先给成功下个定义：成功就是个人或团体通过行动达成目标。这里有三个要素：</p>
-<ul>
-<li>人：成功是需要主语的，或者是个人，比如“我”成功减肥；或者是团体，比如“暴走漫画”成功上市。</li>
-<li>目标：我们需要一个成功的标的物，比如减肥或上市。</li>
-<li>行动：考虑到可操作性，躺着数钱不列入考虑。心酸。</li>
+        <span itemprop="articleBody"><h2 id="问题">问题</h2><p>Rails 项目随着代码量不断增大，复杂度不断增加，开始越来越难以维护。表现在：</p>
+<ol>
+<li>fat controller<ul>
+<li>不断增加的需求使 controller 塞满了各种 action, 比如 search, order 等等。</li>
+<li>某些 action 的逻辑特别复杂，比如 search 会根据 params 实现不同的 filter 逻辑。</li>
 </ul>
-<p>《成功，动机与目标》对上面三个要素进行了分析，通过心理学实验得出了一些结论，我们可以运用这些结论，提高我们的成功概率。</p>
-<h2 id="人">人</h2><p>人的因素包括：</p>
-<ul>
-<li>对自我的认知。要成功，首先要相信自己能够达成目标。相信能力是可以变化的，做“渐变论”而不是“实体论”者。小时候的我有一种认知，我是天生骨架大，这么胖是天生的，基因的，喝水都会胖的。我对自己运动能力的否定也是我越来越胖的一个原因。前两年我开始慢跑，相信我糟糕的心肺功能是可以改善的，这种可以改变的信念一次次把我推上跑步机，我也确实从3公里喘得不行进步到完成两次半程马拉松。（不要问我为什么还是那么胖）</li>
-<li>自制力的强弱。自制力是让减肥者远离蛋糕，学习者远离微博的盾牌。自制力和肌肉一样，是可以锻炼的；是会在使用过后疲乏的。了解到这一点，我们应该注意锻炼我们的自制力，不用它，它会萎缩，锻炼它，它会强健。我们还要注意放松休息，自制力耗尽的时候，我们容易掉入陷阱，被诱惑所魅。有趣的是，吃点甜食让血糖提高可以恢复自制力。</li>
-<li>潜意识。把行动变为习惯，用潜意识的力量。潜意识不会消耗我们稀缺的意志力。固定时间运动，背单词，看书刷题会慢慢养成习惯。</li>
-<li>榜样和环境。善于运用榜样和环境的力量。把美女帅哥的照片贴满屋会让触发潜意识对身材的追求。</li>
-<li>表现还是进步。你是注重表现，即和他人能力或成绩的比较，还是注重进步，即自身能力的增长。在目标简单的时候，表现型的心态会让你获得更好地成绩，而目标复杂困难的时候，注重表现会让人容易消沉而过早放弃。聚焦进步能让人更享受过程，更专注，更投入，更能抵抗失败的挫折感，这往往能带来更好的结果。</li>
-<li>乐观还是悲观。乐观是进取型的，他们更追求获得。悲观则强调防御，不愿意失去。根据目标调整心态是获得更好结果的有效策略。</li>
-<li>基本需求。胜任力，关联感和自主权。在确定目标和开展行动时要关注对人基本需求的满足。</li>
+</li>
+<li>fat model<ul>
+<li>不断增加的需求使 model 塞满了各种 method, scope and callback</li>
 </ul>
-<h2 id="目标">目标</h2><blockquote>
-<p>取乎其上，得乎其中；取乎其中，得乎其下；取乎其下，则无所得矣</p>
-</blockquote>
-<p>目标的制定需要注意：</p>
+</li>
+</ol>
+<p>fat model 和 controller 降低了代码的可读性和可扩展性，让我们在增加新功能时束手束脚，让测试速度降低，让新人陷入阅读面条代码的痛苦中。</p>
+<p>‘Growing Rails Applications In Practice’ （以下简写为 ‘Growing Rails’) 这本书提出了一套解决方法，让 Rails 项目在不断扩张的同时保持良好的可读性和可扩展性。</p>
+<h2 id="观点">观点</h2><p>‘Growing Rails’ 提出了几点观点，书中所有的方法都是建立在这些观点之上的，它们是：</p>
 <ul>
-<li>目标的方向。不是所有的目标都能带来长久地快乐。目标是不是满足人的基本需求，关联感（帮助别人、建立人际，回报社会），胜任力（提高自身能力，经验）和自主权（自己的追求是动力的源泉）。- 为什么 or 是什么。 “为什么”是抽象的，有助于提高抗诱惑力，让人冲劲满满。“是什么”是具体的，有助于提高行动力，让人专注具体操作。</li>
-<li>前途是光明的，道路是曲折的。既要积极地相信目标能够实现，也不能忽略前进路上的拦路虎，过分乐观，或者说不基于事实的乐观往往导致失败。运用心理对照法则，写一条成功的情景，写一条路上的障碍，有助于启动自身的动力系统。</li>
-<li>具体而可衡量。减肥10斤比减一点肥要好。用 React 写一个网页，比掌握 React 要好。</li>
-<li>略困难而可达到。</li>
+<li>complex is complex. 复杂的代码就是复杂的，我们能做的只是用模块的方法管理复杂度</li>
+<li>we can manage the complexity in Rails way. 我们选择了 Rails 框架，就要利用 Rails 推荐的方法来写代码。也许会有些反直觉的做法，把这当成是一种 trade-off</li>
 </ul>
-<h2 id="行动">行动</h2><blockquote>
-<p>不积跬步无以至千里</p>
-</blockquote>
+<h2 id="方法">方法</h2><p>###Better Controller</p>
+<p>采用一种一致的 controller 设计：Rails CRUD</p>
+<p>咋看上去不适于 CRUD 的交互行为，也 map 到 CRUD 上，比如订阅/退订可以用 subscription create/destroy</p>
+<p>###Use ActiveRecord’s validation and callback</p>
+<p>使用 validation and callback 而不是自定义的方法来保证 model 不被误用</p>
+<p>###User ActiveRecord-like model</p>
+<p>那些不和数据库打交道的交互，比如搜索，登陆等，仍然使用像ActiveRecord一样的建模方式，除了可读性好，心理负担轻以外，还有如下好处：</p>
 <ul>
-<li>简单而有效地计划。有没有计划的差距很大。使用“如果……就……”的计划能让给潜意识上一个闹钟，提醒行动，避免错过当下地机会。计划要具体，包括时间和地点。对可能的诱惑和障碍也要制订计划：“如果感觉饿，就吃一片干果”。</li>
-<li>抓住当下。敏捷行动，有效地利用碎片时间。</li>
-<li>拿起盾牌。拒绝干扰和诱惑，拒绝相互矛盾的目标。这些会分散注意力，削弱自制力。</li>
-<li>养成习惯。利用潜意识的力量。</li>
-<li>了解现状。书读到几页了，有几本书在读。今天多少斤，离目标有多远。不了解现状就对不准方向，迈不开步子。</li>
-<li>对失败负责，对自身诚实。从自身找原因，从策略找原因。对过程评价而不是对能力评价。失败时不要质疑能力，要怪自己不努力。而成功了也不要表扬能力而是赞扬过程。对能力评价容易让人感到能力是固定的，要提醒能力是可以变化的，只要方向对，够努力。</li>
+<li>利用表单，比如 simple_form 的友好的错误提示</li>
+<li>自动转换 params 的 string 到 integer 等等格式</li>
+<li>i18n</li>
+<li>Transaction</li>
 </ul>
+<h3 id="Dealing_with_fat_model">Dealing with fat model</h3><p>避免 fat model 的关键是多写 model，复杂的就是复杂的，我们只是用模块的方式来管理复杂度。</p>
+<p>书中举了一个例子，就像你每天都有一堆邮件寄到家里，你要么做一个邮箱装它们，要么这些邮件就散落在书桌，饭桌，床等各处。”Code never goes away”, 代码不会凭空消失的，我们要么新建一个模块放置它，要么把它散落到现有的模块中。而好的管理方法是一个模块只做一件事。</p>
+<p>我们把 model 分成一个核心类和n个附属类，核心类只包括：</p>
+<ul>
+<li>最少的 validation, callback 保证数据完整性</li>
+<li>assciations</li>
+<li>通用的 scope</li>
+</ul>
+<p>那些只在特定页面出现的特定逻辑不应该放在核心类中：</p>
+<ul>
+<li>只在某些页面出现的 validation，比如注册才需要密码</li>
+<li>与数据库不一一对应的属性，比如用逗号分隔的tags</li>
+<li>只在某些场景需要的 callback， 比如欢迎邮件</li>
+<li>权限管理，比如 admin</li>
+<li>与 view 有关的 helper</li>
+</ul>
+<p>以上这些都应该放在 form model 并在核心类的 namespace 下管理。</p>
+<h2 id="结论">结论</h2><p><growing rails=""> 提出了一套构建 Rails 项目的方法，不用 SOA, 纯 Rails way。</growing></p>
 </span>
       
     </div>
@@ -244,6 +266,10 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/Rails/" rel="tag">#Rails</a>
+          
+            <a href="/tags/Ruby/" rel="tag">#Ruby</a>
           
             <a href="/tags/读书笔记/" rel="tag">#读书笔记</a>
           
@@ -254,11 +280,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/19/learn-JS-inheritance-and-closure-from-def-js/" rel="prev">读源代码——def.js</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/19/learn-JS-inheritance-and-closure-from-def-js/" rel="next">读源代码——def.js</a>
             
           </div>
         </div>
@@ -362,7 +388,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#人"><span class="nav-number">1.</span> <span class="nav-text">人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行动"><span class="nav-number">3.</span> <span class="nav-text">行动</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观点"><span class="nav-number">2.</span> <span class="nav-text">观点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing_with_fat_model"><span class="nav-number">3.1.</span> <span class="nav-text">Dealing with fat model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
