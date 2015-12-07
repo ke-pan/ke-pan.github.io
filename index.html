@@ -206,13 +206,10 @@
 <li>complex is complex. 复杂的代码就是复杂的，我们能做的只是用模块的方法管理复杂度</li>
 <li>we can manage the complexity in Rails way. 我们选择了 Rails 框架，就要利用 Rails 推荐的方法来写代码。也许会有些反直觉的做法，把这当成是一种 trade-off</li>
 </ul>
-<h2 id="方法">方法</h2><p>###Better Controller</p>
-<p>采用一种一致的 controller 设计：Rails CRUD</p>
+<h2 id="方法">方法</h2><h3 id="Better_Controller">Better Controller</h3><p>采用一种一致的 controller 设计：Rails CRUD</p>
 <p>咋看上去不适于 CRUD 的交互行为，也 map 到 CRUD 上，比如订阅/退订可以用 subscription create/destroy</p>
-<p>###Use ActiveRecord’s validation and callback</p>
-<p>使用 validation and callback 而不是自定义的方法来保证 model 不被误用</p>
-<p>###User ActiveRecord-like model</p>
-<p>那些不和数据库打交道的交互，比如搜索，登陆等，仍然使用像ActiveRecord一样的建模方式，除了可读性好，心理负担轻以外，还有如下好处：</p>
+<h3 id="Use_ActiveRecord’s_validation_and_callback">Use ActiveRecord’s validation and callback</h3><p>使用 validation and callback 而不是自定义的方法来保证 model 不被误用</p>
+<h3 id="User_ActiveRecord-like_model">User ActiveRecord-like model</h3><p>那些不和数据库打交道的交互，比如搜索，登陆等，仍然使用像ActiveRecord一样的建模方式，除了可读性好，心理负担轻以外，还有如下好处：</p>
 <ul>
 <li>利用表单，比如 simple_form 的友好的错误提示</li>
 <li>自动转换 params 的 string 到 integer 等等格式</li>
